@@ -15,7 +15,7 @@ with col1:
     )
 
 with col2:
-    subjective = st.text_input(
+    nomi = st.text_input(
         "Nominative Pronoun",
         label_visibility="visible",
         disabled=False,
@@ -23,7 +23,7 @@ with col2:
     )
 
 with col3:
-    objective = st.text_input(
+    accu = st.text_input(
         "Accusative/Dative Pronoun",
         label_visibility="visible",
         disabled=False,
@@ -57,4 +57,11 @@ with col6:
         placeholder="e.g. themself - I hope they take care of themself.",
     )
 
-st.write("")
+context = st.radio(
+    "Would your pronoun make more sense in a singular or plural context?",
+    ["Singular", "Plural"],
+    captions=[
+        "would make sense in place of she/her or he/him",
+        "would make sense in place of they/them",
+    ],
+)
