@@ -6,9 +6,10 @@ accu = " "
 possDet = " "
 possPro = " "
 reflexive = " "
-compliment  = " "
+location = " "
 context = " "
 wasWere = " "
+personal =" "
 
 
 import streamlit as st
@@ -17,6 +18,12 @@ st.title("Pronoun Tryouts")
 st.subheader("Welcome! We have a few preset pronoun options or you can custom enter your own.")
 
 st.write("Please only select one pronoun at a time, I'm working on it but currently it just gets confused.")
+
+name = st.text_input(
+    "Your name     ",
+    label_visibility="visible",
+    disabled=False
+)
 
 
 
@@ -34,11 +41,6 @@ with col1:
         possPro = pronounS[3]
         reflexive = pronounS[4]
         context = "Plural"
-        name = st.text_input(
-            "Your name ",
-            label_visibility="visible",
-            disabled=False,
-        )
 
 #she/her
 with col2:
@@ -52,11 +54,7 @@ with col2:
         possPro = pronounS[3]
         reflexive = pronounS[4]
         context = "Singular"
-        name = st.text_input(
-            "Your name  ",
-            label_visibility="visible",
-            disabled=False,
-        )
+
 
 #he/him
 with col3:
@@ -70,11 +68,7 @@ with col3:
         possPro = pronounS[3]
         reflexive = pronounS[4]
         context = "Singular"
-        name = st.text_input(
-            "Your name   ",
-            label_visibility="visible",
-            disabled=False,
-        )
+
         
 
 col4, col5, col6 =st.columns(3)
@@ -91,11 +85,6 @@ with col4:
         possPro = pronounS[3]
         reflexive = pronounS[4]
         context = "Singular"
-        name = st.text_input(
-            "Your name    ",
-            label_visibility="visible",
-            disabled=False,
-        )
 
 #xe/xem
 with col5:
@@ -108,33 +97,23 @@ with col5:
         possDet = pronounS[2]
         possPro = pronounS[3]
         reflexive = pronounS[4]
-        context = "Singular"
-        name = st.text_input(
-            "Your name     ",
-            label_visibility="visible",
-            disabled=False
-        )
+        context = "Plural"
+
 
 #fae/faer
-    with col6:
-        fae = st.checkbox("fae/faer")
+with col6:
+    fae = st.checkbox("fae/faer")
 
-        if fae:
-            pronounS = ["fae", "faer", "faers", "faers", "faeself"]
-            nomi = pronounS[0]
-            accu = pronounS[1]
-            possDet = pronounS[2]
-            possPro = pronounS[3]
-            reflexive = pronounS[4]
-            context = "Singular"
-            name = st.text_input(
-                "Your name     ",
-                label_visibility="visible",
-                disabled=False
-            )
+    if fae:
+        pronounS = ["fae", "faer", "faers", "faers", "faeself"]
+        nomi = pronounS[0]
+        accu = pronounS[1]
+        possDet = pronounS[2]
+        possPro = pronounS[3]
+        reflexive = pronounS[4]
+        context = "Singular"
 
-
-
+col1 = st.columns(1)
 custom = st.checkbox("Custom Pronouns")
 
 if custom:
@@ -142,13 +121,6 @@ if custom:
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        name = st.text_input(
-            "Your name",
-            label_visibility="visible",
-            disabled=False
-        )
-
-    with col2:
         nomi = st.text_input(
             "Nominative Pronoun",
             label_visibility="visible",
@@ -157,7 +129,7 @@ if custom:
         )
         pronounS.append(nomi)
 
-    with col3:
+    with col2:
         accu = st.text_input(
             "Accusative/Dative Pronoun",
             label_visibility="visible",
@@ -166,9 +138,7 @@ if custom:
         )
         pronounS.append(accu)
 
-    col4, col5, col6 = st.columns(3)
-
-    with col4:
+    with col3:
         possDet = st.text_input(
             "Possessive Determiner",
             label_visibility="visible",
@@ -177,7 +147,9 @@ if custom:
         )
         pronounS.append(possDet)
 
-    with col5:
+    col4, col5 = st.columns(2)
+
+    with col4:
         possPro = st.text_input(
             "Possesive Pronoun",
             label_visibility="visible",
@@ -186,7 +158,7 @@ if custom:
         )
         pronounS.append(possPro)
 
-    with col6:
+    with col5:
         reflexive = st.text_input(
             "Reflexive Form",
             label_visibility="visible",
@@ -194,7 +166,6 @@ if custom:
             placeholder="e.g. themself - I hope they take care of themself.",
         )
         pronounS.append(reflexive)
-
 
 
     context = st.radio(
@@ -206,8 +177,9 @@ if custom:
         ],
         )
 
-    st.divider()
-    
+
+        
+st.divider() 
 
 if context == "Singular":
     wasWere = "was"
@@ -218,8 +190,9 @@ elif context == "Plural":
 personal = st.toggle("Personalised Text")
 st.write("By default you get a randomly generated text, take a small quiz to customise it to be more accurate to you")
 
-if not personal:
-    st.write("I met", name, "in a cafe the other day.", nomi.title(), wasWere, "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro, ", they were really",  compliment, "! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+
+
+st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro, ", they were really good! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
 
 #foot notes
