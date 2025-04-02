@@ -4,7 +4,10 @@ import streamlit as st
 
 st.title("Pronoun Tryouts")
 st.subheader("Welcome! We have a few preset pronoun options or you can custom enter your own.")
-st.caption("please only select one pronoun at a time, I'm working on it but currently it just gets confused")
+
+st.write("Please only select one pronoun at a time, I'm working on it but currently it just gets confused.")
+
+
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -12,6 +15,11 @@ with col1:
 
     if they:
         pronounS = ["they", "them", "their", "theirs", "themself"]
+        nomi = pronounS[0]
+        accu = pronounS[1]
+        possDet = pronounS[2]
+        possPro = pronounS[3]
+        reflexive = pronounS[4]
         context = "Plural"
         name = st.text_input(
             "Your name ",
@@ -24,6 +32,11 @@ with col2:
 
     if she:
         pronounS = ["she", "her", "her", "hers", "herself"]
+        nomi = pronounS[0]
+        accu = pronounS[1]
+        possDet = pronounS[2]
+        possPro = pronounS[3]
+        reflexive = pronounS[4]
         context = "Singular"
         name = st.text_input(
             "Your name  ",
@@ -36,6 +49,11 @@ with col3:
 
     if he:
         pronounS = ["he", "him", "his", "his", "himself"]
+        nomi = pronounS[0]
+        accu = pronounS[1]
+        possDet = pronounS[2]
+        possPro = pronounS[3]
+        reflexive = pronounS[4]
         context = "Singular"
         name = st.text_input(
             "Your name   ",
@@ -51,6 +69,11 @@ with col4:
 
     if it:
         pronounS = ["it", "it", "its", "its", "itself"]
+        nomi = pronounS[0]
+        accu = pronounS[1]
+        possDet = pronounS[2]
+        possPro = pronounS[3]
+        reflexive = pronounS[4]
         context = "Singular"
         name = st.text_input(
             "Your name    ",
@@ -63,6 +86,28 @@ with col5:
 
     if xe:
         pronounS = ["xe", "xem", "xyr", "xyrs", "xemself"]
+        nomi = pronounS[0]
+        accu = pronounS[1]
+        possDet = pronounS[2]
+        possPro = pronounS[3]
+        reflexive = pronounS[4]
+        context = "Singular"
+        name = st.text_input(
+            "Your name     ",
+            label_visibility="visible",
+            disabled=False
+        )
+
+with col6:
+    fae = st.checkbox("fae/faer")
+
+    if fae:
+        pronounS = ["fae", "faer", "faers", "faers", "faeself"]
+        nomi = pronounS[0]
+        accu = pronounS[1]
+        possDet = pronounS[2]
+        possPro = pronounS[3]
+        reflexive = pronounS[4]
         context = "Singular"
         name = st.text_input(
             "Your name     ",
@@ -142,9 +187,18 @@ if custom:
     )
 
 
+
 personal = st.toggle("Personalised Text")
-st.caption("Take a small quiz")
+st.write("By default you get a randomly generated text, take a small quiz to customise it to be more accurate to you")
 
 if personal:
     st.write("Feature activated!")
+
+st.divider()
+
+
+st.caption("Pronoun presets were chosen based on the results of the Gender Census 2024 https://www.gendercensus.com/")
+st.caption("For any questions, suggestions or bug reports contact us on th discord! https://discord.gg/NssMXUAeup")
+st.caption("Support upkeep and fund future projects https://ko-fi.com/cerulean163")
+
 
