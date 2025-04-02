@@ -6,9 +6,9 @@ accu = " "
 possDet = " "
 possPro = " "
 reflexive = " "
-compelment  = " "
-
-
+compliment  = " "
+context = " "
+wasWere = " "
 
 
 import streamlit as st
@@ -116,22 +116,22 @@ with col5:
         )
 
 #fae/faer
-with col6:
-    fae = st.checkbox("fae/faer")
+    with col6:
+        fae = st.checkbox("fae/faer")
 
-    if fae:
-        pronounS = ["fae", "faer", "faers", "faers", "faeself"]
-        nomi = pronounS[0]
-        accu = pronounS[1]
-        possDet = pronounS[2]
-        possPro = pronounS[3]
-        reflexive = pronounS[4]
-        context = "Singular"
-        name = st.text_input(
-            "Your name     ",
-            label_visibility="visible",
-            disabled=False
-        )
+        if fae:
+            pronounS = ["fae", "faer", "faers", "faers", "faeself"]
+            nomi = pronounS[0]
+            accu = pronounS[1]
+            possDet = pronounS[2]
+            possPro = pronounS[3]
+            reflexive = pronounS[4]
+            context = "Singular"
+            name = st.text_input(
+                "Your name     ",
+                label_visibility="visible",
+                disabled=False
+            )
 
 
 
@@ -198,13 +198,16 @@ if custom:
 
 
     context = st.radio(
-    "Would your pronoun make more sense in a singular or plural context?",
-    ["Singular", "Plural"],
-    captions=[
-        "would make sense in place of she/her or he/him e.g. xe is here",
-        "would make sense in place of they/them e.g. xe are here",
-    ],
-    )
+        "Would your pronoun make more sense in a singular or plural context?",
+        ["Singular", "Plural"],
+        captions=[
+            "would make sense in place of she/her or he/him e.g. xe is here",
+            "would make sense in place of they/them e.g. xe are here",
+        ],
+        )
+
+    st.divider()
+    
 
 if context == "Singular":
     wasWere = "was"
@@ -216,7 +219,7 @@ personal = st.toggle("Personalised Text")
 st.write("By default you get a randomly generated text, take a small quiz to customise it to be more accurate to you")
 
 if not personal:
-    st.write("I met", name, "in a cafe the other day.", nomi.title(), wasWere "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro, ", they were really”, compliment, ”! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+    st.write("I met", name, "in a cafe the other day.", nomi.title(), wasWere, "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro, ", they were really",  compliment, "! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
 
 #foot notes
