@@ -1,15 +1,22 @@
 pronounS = []
-name = " "
 
+import random
+
+
+NameLength = False
 nomi = " "
 accu = " "
 possDet = " "
 possPro = " "
 reflexive = " "
-location = " "
 context = " "
+location = " "
 wasWere = " "
 personal =" "
+cafe = " "
+party = " "
+work = " "
+college = " "
 
 
 import streamlit as st
@@ -19,11 +26,18 @@ st.subheader("Welcome! We have a few preset pronoun options or you can custom en
 
 st.write("Please only select one pronoun at a time, I'm working on it but currently it just gets confused.")
 
+
 name = st.text_input(
-    "Your name     ",
+    "Your name",
+    key=111,
     label_visibility="visible",
-    disabled=False
-)
+    disabled=False 
+    )
+if len(name) < 1:
+    st.caption("Names must be at least 1 character")
+    NameLength = False
+else:
+    NameLength = True
 
 
 
@@ -190,9 +204,55 @@ elif context == "Plural":
 personal = st.toggle("Personalised Text")
 st.write("By default you get a randomly generated text, take a small quiz to customise it to be more accurate to you")
 
+if personal:
+    with st.form("my_form"):
+        st.subheader("Text Customisation")
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.write("Where might you be most likely to meet a new friend?")
+            cafe = st.checkbox("A  cafe")
+            party = st.checkbox("A party")
+            college = st.checkbox("College/School")
+            work = st.checkbox("Work")
+        submitted = st.form_submit_button("Submit")
+        
+
+    if cafe:
+        location = "at a cafe"
+        
+    elif party:
+        location = "at a party"
+
+    elif college:
+        location = "on campus"
+
+    elif work:
+        location = "at work"
+
+    if (fae or he or she or they or it or xe) and (cafe or party or college or work) and NameLength:     
+        st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro + ", they were really good! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
 
-st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro, ", they were really good! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+elif (fae or he or she or they or it or xe) and NameLength:
+    area = random.randint(0,3)
+
+    if area == 1:
+        location = "at a cafe"
+        
+    elif area == 2:
+        location = "at a party"
+
+    elif area == 3:
+        location = "on campus"
+
+    elif area == 0:
+        location = "at work"
+
+    st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro + ", they were really good! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+
+
+ 
+
 
 
 #foot notes
