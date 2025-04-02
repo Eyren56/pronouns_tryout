@@ -69,4 +69,3 @@ st.write("please enter the full set of your pronouns one at a time")
 
 
 st.text_input("subjective form", value="", max_chars=None, key=None, type="default", help=None, autocomplete=None, on_change=None, args=None, kwargs=None, placeholder="e.g They sit on the chair", disabled=False, label_visibility="visible")"""
-

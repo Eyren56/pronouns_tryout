@@ -1,4 +1,15 @@
 pronounS = []
+name = " "
+
+nomi = " "
+accu = " "
+possDet = " "
+possPro = " "
+reflexive = " "
+compelment  = " "
+
+
+
 
 import streamlit as st
 
@@ -8,8 +19,10 @@ st.subheader("Welcome! We have a few preset pronoun options or you can custom en
 st.write("Please only select one pronoun at a time, I'm working on it but currently it just gets confused.")
 
 
+
 col1, col2, col3 = st.columns(3)
 
+#they/them
 with col1:
     they = st.checkbox("they/them")
 
@@ -27,6 +40,7 @@ with col1:
             disabled=False,
         )
 
+#she/her
 with col2:
     she = st.checkbox("she/her")
 
@@ -43,7 +57,8 @@ with col2:
             label_visibility="visible",
             disabled=False,
         )
-                    
+
+#he/him
 with col3:
     he = st.checkbox("he/him")
 
@@ -64,6 +79,7 @@ with col3:
 
 col4, col5, col6 =st.columns(3)
 
+#it/its
 with col4:
     it = st.checkbox("it/its")
 
@@ -81,6 +97,7 @@ with col4:
             disabled=False,
         )
 
+#xe/xem
 with col5:
     xe = st.checkbox("xe/xem/xyr")
 
@@ -98,6 +115,7 @@ with col5:
             disabled=False
         )
 
+#fae/faer
 with col6:
     fae = st.checkbox("fae/faer")
 
@@ -114,6 +132,8 @@ with col6:
             label_visibility="visible",
             disabled=False
         )
+
+
 
 custom = st.checkbox("Custom Pronouns")
 
@@ -186,19 +206,24 @@ if custom:
     ],
     )
 
+if context == "Singular":
+    wasWere = "was"
+elif context == "Plural":
+    wasWere = "were"
 
 
 personal = st.toggle("Personalised Text")
 st.write("By default you get a randomly generated text, take a small quiz to customise it to be more accurate to you")
 
-if personal:
-    st.write("Feature activated!")
+if not personal:
+    st.write("I met", name, "in a cafe the other day.", nomi.title(), wasWere "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro, ", they were really”, compliment, ”! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
+
+#foot notes
 st.divider()
 
-
 st.caption("Pronoun presets were chosen based on the results of the Gender Census 2024 https://www.gendercensus.com/")
-st.caption("For any questions, suggestions or bug reports contact us on th discord! https://discord.gg/NssMXUAeup")
-st.caption("Support upkeep and fund future projects https://ko-fi.com/cerulean163")
+st.caption("For more info, suggestions or error reports contact us on the discord! https://discord.gg/NssMXUAeup")
+st.caption("Buy me a kofi and support upkeep https://ko-fi.com/cerulean163")
 
 
