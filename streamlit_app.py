@@ -231,7 +231,7 @@ if personal:
             device = "phonecase"
 
         with col2:
-            st.write("What migt you talk about?")
+            st.write("What might you talk about?")
             craft = st.checkbox("Craft")
             sports = st.checkbox("Sports")
             games = st.checkbox("Games")
@@ -252,13 +252,17 @@ if personal:
         elif games:
             interests = "gaming"
             presents = "pictures of a game"
+            presentsShort = "game"
+            invite = "a small gaming event in a local cafe"
+        elif games:
+            interests = "gaming"
+            presents = "pictures of a game"
             presentsShort = "photos"
             invite = "a small gaming event in a local cafe"
-        
             
 
     if (fae or he or she or they or it or xe) and submitted and NameLength:     
-        st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", the", presentsShort, "were really good! We talked for a while. Before", nomi, "left", name, " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+        st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", the", presentsShort, "were really good! We talked for a while. Before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
 
 elif (fae or he or she or they or it or xe) and NameLength:
@@ -297,7 +301,7 @@ elif (fae or he or she or they or it or xe) and NameLength:
         presents = "some picture of a game"
         invite = "a small gaming event in a local cafe"
         
-    st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", they were really good! We talked for a while and before", nomi, "left", name, " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+    st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", they were really good! We talked for a while and before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
  
 
@@ -309,5 +313,6 @@ st.divider()
 st.caption("Pronoun presets were chosen based on the results of the Gender Census 2024 https://www.gendercensus.com/")
 st.caption("For more info, suggestions or error reports contact us on the discord! https://discord.gg/NssMXUAeup")
 st.caption("Buy me a kofi and support upkeep https://ko-fi.com/cerulean163")
+st.caption("                   Copyright 2025 K Cooper                           ")
 
 
