@@ -236,7 +236,7 @@ if personal:
             sports = st.checkbox("Sports")
             games = st.checkbox("Games")
             books = st.checkbox("Books")
-            place = st.checkbox("placeholder")
+            movies = st.checkbox("TV shows/movies")
         submitted = st.form_submit_button("Submit")
 
         if craft:
@@ -259,7 +259,11 @@ if personal:
             presents = "favourite books"
             presentsShort = "the books"
             invite = "a small indie book shop"
-        
+        elif movies:
+            interests = "tv shows"
+            presents = "favourite shows and movies"
+            presentsShort = "the recommendations"
+            invite = "indie movie showing in local cinema"
             
 
     if (fae or he or she or they or it or xe) and (cafe or work or party or college) and (games or books or sports or craft) and NameLength:   
