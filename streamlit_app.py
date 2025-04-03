@@ -242,20 +242,23 @@ if personal:
         if craft:
             interests = "crafts"
             presents = "projects"
+            presentsShort = "they"
             invite = "craft fair"
         elif sports:
             interests = "sports" 
             presents = "photos from matches" 
+            presentsShort = "photos"
             invite = "match"
-        elif interest == 2:
+        elif games:
             interests = "gaming"
-            presents = "some picture of a game"
+            presents = "pictures of a game"
+            presentsShort = "photos"
             invite = "a small gaming event in a local cafe"
         
             
 
     if (fae or he or she or they or it or xe) and submitted and NameLength:     
-        st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", they were really good! We talked for a while. Before", nomi, "left", name, " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+        st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", the", presentsShort, "were really good! We talked for a while. Before", nomi, "left", name, " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
 
 elif (fae or he or she or they or it or xe) and NameLength:
@@ -280,6 +283,7 @@ elif (fae or he or she or they or it or xe) and NameLength:
         device = "phonecase"
     
     interest = random.randint(0,2)
+
     if interest == 0:
             interests = "crafts"
             presents = "projects"
@@ -288,7 +292,7 @@ elif (fae or he or she or they or it or xe) and NameLength:
         interests = "sports" 
         presents = "photos from matches" 
         invite = "match"
-    elif interests == 2:
+    elif interest == 2:
         interests = "gaming"
         presents = "some picture of a game"
         invite = "a small gaming event in a local cafe"
