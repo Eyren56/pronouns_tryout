@@ -159,7 +159,7 @@ if custom:
 
     with col3:
         possDet = st.text_input(
-            "Possessive Determiner",
+            "Genitive Pronoun",
             label_visibility="visible",
             disabled=False,
             placeholder="e.g. their - Their bag was blue.",
@@ -306,29 +306,29 @@ elif (fae or he or she or they or it or xe) and NameLength:
             interests = "crafts"
             presents = "projects"
             presentsShort = "they"
-            invite = "craft fair"
+            invite = " craft fair"
     elif interest == 1:
         interests = "sports" 
         presents = "photos from matches" 
         presentsShort = "the photos"
-        invite = "match"
+        invite = " match"
     elif interest == 2:
         interests = "gaming"
         presents = "some picture of a game"
         presentsShort = "the game"
-        invite = "a small gaming event in a local cafe"
+        invite = " small gaming event in a local cafe"
     elif interest == 3:
         interests = "books we were reading"
         presents = "favourite books"
         presentsShort = "the books"
-        invite = "a small indie book shop"
+        invite = " small indie book shop"
     elif interest == 4:
         interests = "tv shows"
         presents = "favourite shows and movies"
         presentsShort = "the recommendations"
-        invite = "indie movie showing in local cinema"
+        invite = "n indie movie showing in local cinema"
     
-    st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ",", presentsShort, "were really good! We talked for a while and before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+    st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ",", presentsShort, "were really good! We talked for a while and before", nomi, "left", name.title(), " told me about a"+ invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
  
 
