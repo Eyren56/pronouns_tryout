@@ -302,7 +302,7 @@ elif (fae or he or she or they or it or xe) and NameLength:
         interests = "gaming"
         presents = "some picture of a game"
         invite = "a small gaming event in a local cafe"
-    elif books:
+    elif interest == 3:
         interests = "books we were reading"
         presents = "favourite books"
         presentsShort = "the books"
