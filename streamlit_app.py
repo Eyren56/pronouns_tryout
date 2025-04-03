@@ -199,7 +199,7 @@ elif context == "Plural":
 
 
 personal = st.toggle("Personalised Text")
-st.write("By default you get a randomly generated text, take a small quiz to customise it to be more accurate to you")
+st.write("By default you get a randomly generated text, answer a few questions to make it more accurate to you")
 
 if personal:
     with st.form("my_form"):
@@ -235,7 +235,7 @@ if personal:
             craft = st.checkbox("Craft")
             sports = st.checkbox("Sports")
             games = st.checkbox("Games")
-            place2 = st.checkbox("placeholder2")
+            books = st.checkbox("Books")
             place = st.checkbox("placeholder")
         submitted = st.form_submit_button("Submit")
 
@@ -247,22 +247,24 @@ if personal:
         elif sports:
             interests = "sports" 
             presents = "photos from matches" 
-            presentsShort = "photos"
+            presentsShort = "the photos"
             invite = "match"
         elif games:
             interests = "gaming"
             presents = "pictures of a game"
-            presentsShort = "game"
+            presentsShort = "the game"
             invite = "a small gaming event in a local cafe"
-        elif games:
-            interests = "gaming"
-            presents = "pictures of a game"
-            presentsShort = "photos"
-            invite = "a small gaming event in a local cafe"
+        elif books:
+            interests = "books we were reading"
+            presents = "favourite books"
+            presentsShort = "the books"
+            invite = "a small indie book shop"
+        
             
 
-    if (fae or he or she or they or it or xe) and submitted and NameLength:     
-        st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", the", presentsShort, "were really good! We talked for a while. Before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+    if (fae or he or she or they or it or xe) and (cafe or work or party or college) and (games or books or sports or craft) and NameLength:   
+        st.divider()  
+        st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ",", presentsShort, "looked really good! We talked for a while. Before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
 
 elif (fae or he or she or they or it or xe) and NameLength:
@@ -286,7 +288,7 @@ elif (fae or he or she or they or it or xe) and NameLength:
         because = "a photo in"
         device = "phonecase"
     
-    interest = random.randint(0,2)
+    interest = random.randint(0,3)
 
     if interest == 0:
             interests = "crafts"
@@ -300,6 +302,14 @@ elif (fae or he or she or they or it or xe) and NameLength:
         interests = "gaming"
         presents = "some picture of a game"
         invite = "a small gaming event in a local cafe"
+    elif books:
+        interests = "books we were reading"
+        presents = "favourite books"
+        presentsShort = "the books"
+        invite = "a small indie book shop/cafe"
+    
+            
+    
         
     st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", they were really good! We talked for a while and before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
@@ -313,6 +323,6 @@ st.divider()
 st.caption("Pronoun presets were chosen based on the results of the Gender Census 2024 https://www.gendercensus.com/")
 st.caption("For more info, suggestions or error reports contact us on the discord! https://discord.gg/NssMXUAeup")
 st.caption("Buy me a kofi and support upkeep https://ko-fi.com/cerulean163")
-st.caption("                   Copyright 2025 K Cooper                           ")
+st.caption("Copyright 2025 K Cooper")
 
 
