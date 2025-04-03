@@ -274,12 +274,12 @@ if personal:
             invite = "indie movie showing in local cinema"
             
 
-    if (fae or he or she or they or it or xe) and (cafe or work or party or college) and (games or books or sports or craft or movies) and NameLength:   
+    if (fae or he or she or they or it or xe or custom) and (cafe or work or party or college) and (games or books or sports or craft or movies) and NameLength:   
         st.divider()  
         st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ",", presentsShort, "looked really good! We talked for a while. Before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
 
-elif (fae or he or she or they or it or xe) and NameLength:
+elif (fae or he or she or they or it or xe or custom) and NameLength:
     st.divider()
     area = random.randint(0,3)
 
