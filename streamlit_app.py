@@ -314,8 +314,8 @@ elif (fae or he or she or they or it or xe or custom) and NameLength:
         invite = " match"
     elif interest == 2:
         interests = "gaming"
-        presents = "some picture of a game"
-        presentsShort = "the game"
+        presents = "pictures of a game"
+        presentsShort = "the games"
         invite = " small gaming event in a local cafe"
     elif interest == 3:
         interests = "books we were reading"
