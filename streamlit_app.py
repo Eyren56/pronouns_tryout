@@ -13,10 +13,7 @@ context = " "
 location = " "
 wasWere = " "
 personal =" "
-cafe = " "
-party = " "
-work = " "
-college = " "
+interests = " "
 
 
 import streamlit as st
@@ -207,49 +204,96 @@ st.write("By default you get a randomly generated text, take a small quiz to cus
 if personal:
     with st.form("my_form"):
         st.subheader("Text Customisation")
-        col1, col2, col3 = st.columns(3)
+        col1, col2 = st.columns(2)
         with col1:
             st.write("Where might you be most likely to meet a new friend?")
             cafe = st.checkbox("A  cafe")
             party = st.checkbox("A party")
             college = st.checkbox("College/School")
             work = st.checkbox("Work")
-        submitted = st.form_submit_button("Submit")
+
+
+        if cafe:
+            location = "at a cafe"
+            because = "a sticker on"
+            device = "laptop"
+        elif party:
+            location = "at a party"
+            because = "a photo in"
+            device = "phonecase"
+        elif college:
+            location = "on campus"
+            because = "a sticker on"
+            device = "laptop"
+        elif work:
+            location = "at work"
+            because = "a photo in"
+            device = "phonecase"
+
+        with col2:
+            st.write("What migt you talk about?")
+            craft = st.checkbox("Craft")
+            sports = st.checkbox("Sports")
+            games = st.checkbox("Games")
+            place2 = st.checkbox("placeholder2")
+            place = st.checkbox("placeholder")
         
 
-    if cafe:
-        location = "at a cafe"
+        if craft:
+            interests = "crafts"
+            presents = "projects"
+            invite = "craft fair"
+        elif sports:
+            interests = "sports" 
+            presents = "photos from matches" 
+            invite = "match"
+        elif interest == 2:
+            interests = "gaming"
+            presents = "some picture of a game"
+            invite = "a small gaming event in a local cafe"
         
-    elif party:
-        location = "at a party"
+        submitted = st.form_submit_button("Submit")    
 
-    elif college:
-        location = "on campus"
-
-    elif work:
-        location = "at work"
-
-    if (fae or he or she or they or it or xe) and (cafe or party or college or work) and NameLength:     
-        st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro + ", they were really good! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+    if (fae or he or she or they or it or xe) and submitted and NameLength:     
+        st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", they were really good! We talked for a while. Before", nomi, "left", name, " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
 
 elif (fae or he or she or they or it or xe) and NameLength:
+    st.divider()
     area = random.randint(0,3)
 
     if area == 1:
         location = "at a cafe"
-        
+        because = "a sticker on"
+        device = "laptop"
     elif area == 2:
         location = "at a party"
-
+        because = "a photo on"
+        device = "phonecase"
     elif area == 3:
         location = "on campus"
-
+        because = "a sticker on"
+        device = "laptop"
     elif area == 0:
         location = "at work"
-
-    st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about crafts because of a sticker on", possDet, "laptop.", nomi.title(), "showed me some projects of", possPro + ", they were really good! We talked for a while. Before", nomi, "left", name, " told me about a craft fair next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
-
+        because = "a photo in"
+        device = "phonecase"
+    
+    interest = random.randint(0,2)
+    if interest == 0:
+            interests = "crafts"
+            presents = "projects"
+            invite = "craft fair"
+    elif interest == 1:
+        interests = "sports" 
+        presents = "photos from matches" 
+        invite = "match"
+    elif interest == 2:
+        interests = "gaming"
+        presents = "some picture of a game"
+        invite = "a small gaming event in a local cafe"
+        
+    st.write("I met", name, location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ", they were really good! We talked for a while and before", nomi, "left", name, " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
  
 
