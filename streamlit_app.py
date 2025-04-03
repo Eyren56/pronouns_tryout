@@ -108,7 +108,15 @@ with col5:
         possDet = pronounS[2]
         possPro = pronounS[3]
         reflexive = pronounS[4]
-        context = "Singular"
+        context = st.radio(
+            "Which do you prefer?",
+            ["Singular", "Plural"],
+            captions=[
+                "e.g. Xe was here",
+                "e.g. Xe were here",
+            ],
+            )
+
 
 
 #fae/faer
