@@ -339,6 +339,6 @@ st.divider()
 
 st.caption("Pronoun presets were chosen based on the results of the Gender Census 2024 https://www.gendercensus.com/")
 st.caption("For more info, suggestions or error reports contact us on the discord! https://discord.gg/NssMXUAeup")
-st.caption("Buy me a kofi and support upkeep https://ko-fi.com/cerulean163")
+st.caption("Buy me a kofi! https://ko-fi.com/cerulean163")
 
 
