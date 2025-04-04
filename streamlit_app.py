@@ -153,7 +153,7 @@ if custom:
             "Accusative/Dative Pronoun",
             label_visibility="visible",
             disabled=False,
-            placeholder="e.g. them - Is that them?",
+            placeholder="e.g. them - That belongs to them",
         )
         pronounS.append(accu)
 
@@ -188,7 +188,7 @@ if custom:
 
 
     context = st.radio(
-        "Would your pronoun make more sense in a singular or plural context?",
+        "Would your pronouns make more sense in a singular or plural context?",
         ["Singular", "Plural"],
         captions=[
             "would make sense in place of she/her or he/him e.g. xe is here",
@@ -214,67 +214,64 @@ if personal:
         st.subheader("Text Customisation")
         col1, col2 = st.columns(2)
         with col1:
-            st.write("Where might you be most likely to meet a new friend?")
-            cafe = st.checkbox("A  cafe")
-            party = st.checkbox("A party")
-            college = st.checkbox("College/School")
-            work = st.checkbox("Work")
+            place = st.radio(
+            "Where might you be most likely to meet a new friend?",
+            ["A cafe", "A party", "College/School", "Work"],
+            )
 
 
-        if cafe:
+        if place == "A cafe":
             location = "at a cafe"
             because = "a sticker on"
             device = "laptop"
-        elif party:
+        elif place == "A party":
             location = "at a party"
             because = "a photo in"
             device = "phonecase"
-        elif college:
+        elif place == "College/School":
             location = "on campus"
             because = "a sticker on"
             device = "laptop"
-        elif work:
+        elif place == "work":
             location = "at work"
             because = "a photo in"
             device = "phonecase"
 
         with col2:
-            st.write("What might you talk about?")
-            craft = st.checkbox("Craft")
-            sports = st.checkbox("Sports")
-            games = st.checkbox("Games")
-            books = st.checkbox("Books")
-            movies = st.checkbox("TV shows/movies")
+            interest = st.radio(
+            "What might you talk about?",
+            ["Crafts", "Sports", "Games","Books", "TV shows/Movies"],
+            )
         submitted = st.form_submit_button("Submit")
 
-        if craft:
+        if interest == "Crafts":
             interests = "crafts"
             presents = "projects"
             presentsShort = "they"
             invite = "craft fair"
-        elif sports:
+        elif interest == "Sports":
             interests = "sports" 
             presents = "photos from matches" 
             presentsShort = "the photos"
             invite = "match"
-        elif games:
+        elif interest == "Games":
             interests = "gaming"
             presents = "pictures of a game"
             presentsShort = "the game"
             invite = "a small gaming event in a local cafe"
-        elif books:
+        elif interest == "Books":
             interests = "books we were reading"
             presents = "favourite books"
             presentsShort = "the books"
             invite = "a small indie book shop"
-        elif movies:
+        elif interest == "TV shows/Movies":
             interests = "tv shows"
             presents = "favourite shows and movies"
             presentsShort = "the recommendations"
             invite = "indie movie showing in local cinema"
             
 
-    if (fae or he or she or they or it or xe or custom) and (cafe or work or party or college) and (games or books or sports or craft or movies) and NameLength:   
+    if (fae or he or she or they or it or xe or custom) and submitted and NameLength:   
         st.divider()  
         st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ",", presentsShort, "looked really good! We talked for a while. Before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
