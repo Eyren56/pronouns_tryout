@@ -108,7 +108,15 @@ with col5:
         possDet = pronounS[2]
         possPro = pronounS[3]
         reflexive = pronounS[4]
-        context = "Plural"
+        context = st.radio(
+            "Which do you prefer?",
+            ["Singular", "Plural"],
+            captions=[
+                "e.g. Xe was here",
+                "e.g. Xe were here",
+            ],
+            )
+
 
 
 #fae/faer
@@ -151,7 +159,7 @@ if custom:
 
     with col3:
         possDet = st.text_input(
-            "Possessive Determiner",
+            "Genitive Pronoun",
             label_visibility="visible",
             disabled=False,
             placeholder="e.g. their - Their bag was blue.",
@@ -266,12 +274,12 @@ if personal:
             invite = "indie movie showing in local cinema"
             
 
-    if (fae or he or she or they or it or xe) and (cafe or work or party or college) and (games or books or sports or craft) and NameLength:   
+    if (fae or he or she or they or it or xe or custom) and (cafe or work or party or college) and (games or books or sports or craft or movies) and NameLength:   
         st.divider()  
         st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ",", presentsShort, "looked really good! We talked for a while. Before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
 
-elif (fae or he or she or they or it or xe) and NameLength:
+elif (fae or he or she or they or it or xe or custom) and NameLength:
     st.divider()
     area = random.randint(0,3)
 
@@ -298,29 +306,29 @@ elif (fae or he or she or they or it or xe) and NameLength:
             interests = "crafts"
             presents = "projects"
             presentsShort = "they"
-            invite = "craft fair"
+            invite = " craft fair"
     elif interest == 1:
         interests = "sports" 
         presents = "photos from matches" 
         presentsShort = "the photos"
-        invite = "match"
+        invite = " match"
     elif interest == 2:
         interests = "gaming"
-        presents = "some picture of a game"
-        presentsShort = "the game"
-        invite = "a small gaming event in a local cafe"
+        presents = "pictures of a game"
+        presentsShort = "the games"
+        invite = " small gaming event in a local cafe"
     elif interest == 3:
         interests = "books we were reading"
         presents = "favourite books"
         presentsShort = "the books"
-        invite = "a small indie book shop"
+        invite = " small indie book shop"
     elif interest == 4:
         interests = "tv shows"
         presents = "favourite shows and movies"
         presentsShort = "the recommendations"
-        invite = "indie movie showing in local cinema"
+        invite = "n indie movie showing in local cinema"
     
-    st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ",", presentsShort, "were really good! We talked for a while and before", nomi, "left", name.title(), " told me about a", invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
+    st.write("I met", name.title(), location, "the other day.", nomi.title(), wasWere, "lovely! We got to talking about", interests,"because of", because, possDet, device + ".", nomi.title(), "showed me some", presents, "of", possPro + ",", presentsShort, "were really good! We talked for a while and before", nomi, "left", name.title(), " told me about a"+ invite, nomi, "would be at next weekend. It sounded like something I might enjoy so I think I might go - I wonder if I’ll see", accu, "there.")
 
  
 
@@ -331,7 +339,6 @@ st.divider()
 
 st.caption("Pronoun presets were chosen based on the results of the Gender Census 2024 https://www.gendercensus.com/")
 st.caption("For more info, suggestions or error reports contact us on the discord! https://discord.gg/NssMXUAeup")
-st.caption("Buy me a kofi and support upkeep https://ko-fi.com/cerulean163")
-st.caption("Copyright 2025 K Cooper")
+st.caption("Buy me a kofi! https://ko-fi.com/cerulean163")
 
 
